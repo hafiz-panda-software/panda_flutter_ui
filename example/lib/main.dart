@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             PandaHtmlView(
               data: '''
+Test not html
   <H1>Heading 1</H1>
   <H2>Heading 2</H2>
   <H3>Heading 3</H3>
@@ -83,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
     </tfoot>
     </table>''',
               textColor: Colors.grey[700],
-              isCenterText: false,
+              isCenterText: true,
               onLinkTap: (url) {
                 print('html url: $url');
               },

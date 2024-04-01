@@ -27,11 +27,16 @@ class PandaHtmlView extends StatelessWidget {
     final PandaTextFormatService _textFormatService = PandaTextFormatService();
     // return Container();
     return HtmlWidget(
-      _textFormatService.fixEmoji(
+      '''
+      <p>
+      ${_textFormatService.fixEmoji(
         _textFormatService.cleanAmpersand(
           _textFormatService.sanitizeHtml(data),
         ),
-      ),
+      )}
+      </p>
+      ''',
+      renderMode: RenderMode.column,
       customStylesBuilder: (element) {
         Map<String, String> styles = {};
         if (isCenterText) {
@@ -39,6 +44,7 @@ class PandaHtmlView extends StatelessWidget {
         }
         return styles;
       },
+
       textStyle: TextStyle(
         color: textColor,
         fontSize: fontSize,
