@@ -82,8 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
     <tr><td>Data</td><td>Data</td><td>Data</td></tr>
     </tfoot>
     </table>''',
-              accentColor: Colors.orange[900],
               textColor: Colors.grey[700],
+              isCenterText: false,
               onLinkTap: (url) {
                 print('html url: $url');
               },

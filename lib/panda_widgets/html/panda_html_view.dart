@@ -1,34 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
+// import 'package:flutter_html/flutter_html.dart';
 // import 'package:flutter_html/flutter_html.dart';
 import 'package:panda_flutter_ui/panda_flutter_ui.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 class PandaHtmlView extends StatelessWidget {
   final String data;
-  final Color? accentColor;
   final Color? textColor;
-  final Color? pTagColor;
-  final Color? borderColor;
-
   final double? fontSize;
   final FontWeight fontWeight;
-  final TextAlign? textAlign;
+  final bool isCenterText;
   final Function(String? url)? onLinkTap;
-  final bool isRemoveBodyPadding;
 
   const PandaHtmlView({
     Key? key,
     required this.data,
-    this.accentColor,
     this.textColor,
-    this.pTagColor,
-    this.borderColor,
     this.fontSize,
-    this.textAlign,
+    this.isCenterText = false,
     this.fontWeight = FontWeight.normal,
     this.onLinkTap,
-    this.isRemoveBodyPadding = false,
   }) : super(key: key);
 
   @override
@@ -40,6 +31,18 @@ class PandaHtmlView extends StatelessWidget {
         _textFormatService.cleanAmpersand(
           _textFormatService.sanitizeHtml(data),
         ),
+      ),
+      customStylesBuilder: (element) {
+        Map<String, String> styles = {};
+        if (isCenterText) {
+          styles.addEntries({'text-align': 'center'}.entries);
+        }
+        return styles;
+      },
+      textStyle: TextStyle(
+        color: textColor,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
       ),
       onTapUrl: (url) {
         if (onLinkTap != null) {
