@@ -9,6 +9,7 @@ class PandaImage extends StatelessWidget {
   final String? remoteImageUrl;
   final String? watermarkImageUrl;
   final String? localImagePath;
+  final String? assetImagePath;
   final FilterQuality filterQuality;
   final BoxFit fit;
   final Widget? errorWidget;
@@ -24,6 +25,7 @@ class PandaImage extends StatelessWidget {
     Key? key,
     this.remoteImageUrl,
     this.watermarkImageUrl,
+    this.assetImagePath,
     this.localImagePath,
     this.width,
     this.height,
@@ -87,25 +89,33 @@ class PandaImage extends StatelessWidget {
       0,
     ]);
 
-    Widget _image = localImagePath != null
-        ? Image.file(
-            File(localImagePath ?? ''),
-            //File(localImagePath!).readAsBytesSync(),
+    Widget _image = assetImagePath != null
+        ? Image.asset(
+            assetImagePath!,
             fit: fit,
             width: width,
             height: height,
             filterQuality: filterQuality,
           )
-        : isZoomableImage
-            ? PhotoView.customChild(
-                minScale: 1.0,
-                maxScale: 2.0,
-                backgroundDecoration: BoxDecoration(
-                  color: backgroundColor,
-                ),
-                child: _networkImage,
+        : localImagePath != null
+            ? Image.file(
+                File(localImagePath ?? ''),
+                //File(localImagePath!).readAsBytesSync(),
+                fit: fit,
+                width: width,
+                height: height,
+                filterQuality: filterQuality,
               )
-            : _networkImage;
+            : isZoomableImage
+                ? PhotoView.customChild(
+                    minScale: 1.0,
+                    maxScale: 2.0,
+                    backgroundDecoration: BoxDecoration(
+                      color: backgroundColor,
+                    ),
+                    child: _networkImage,
+                  )
+                : _networkImage;
 
     return ClipRRect(
       borderRadius: borderRadius ?? BorderRadius.zero,
