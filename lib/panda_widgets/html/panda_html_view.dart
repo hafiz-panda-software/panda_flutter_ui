@@ -47,6 +47,7 @@ class PandaHtmlView extends StatelessWidget {
             'text-align': 'center',
             'vertical-align': 'center',
             //'align-items': 'center',
+            'color': 'blue',
             'border': '1px solid #B0B0B0	',
             'height': '100px',
           }.entries);
