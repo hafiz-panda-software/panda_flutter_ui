@@ -42,6 +42,24 @@ class PandaHtmlView extends StatelessWidget {
         if (isCenterText) {
           styles.addEntries({'text-align': 'center'}.entries);
         }
+        if (element.localName == 'th') {
+          styles.addEntries({
+            'text-align': 'center',
+            'vertical-align': 'center',
+            //'align-items': 'center',
+            'border': '1px solid black',
+            'height': '100px',
+          }.entries);
+        }
+        if (element.localName == 'td') {
+          styles.addEntries({
+            'text-align': 'start',
+            //'vertical-align': 'center',
+            //'horizontal-align': 'center',
+            'border': '1px solid black',
+            'height': '100px',
+          }.entries);
+        }
         return styles;
       },
 
