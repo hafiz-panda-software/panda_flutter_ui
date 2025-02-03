@@ -71,20 +71,9 @@ Test not html
   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkZfSUuIOGln-FOAW3OSoJquZXRolTjZhseQ&usqp=CAU"/>
     <br/>
-    <table>
-    <thead>
-    <tr><th>One</th><th>Two</th><th>Three</th></tr>
-    </thead>
-    <tbody>
-    </tbody>
-    <tfoot>
-    <tr><td>Data</td><td>Data</td><td>Data</td></tr>
-    <tr><td>Data</td><td>Data</td><td>Data</td></tr>
-    <tr><td>Data</td><td>Data</td><td>Data</td></tr>
-    </tfoot>
-    </table>''',
+    <div class=\"col-lg-12\">\r\n                    <table class=\"table table-bordered\">\r\n                        <thead>\r\n                            <tr style=\"background:#dddddd;\">\r\n                                <th>Category</th>\r\n                                <th>TIN Old Version</th>\r\n                                <th>TIN New Version*</th>\r\n                                <th>Remarks</th>\r\n                            </tr>\r\n                        </thead>\r\n                        <tbody>\r\n                            <tr>\r\n                                <td rowspan=\"3\" style=\"background:#dddddd;vertical-align:middle;\">\r\n                                    <b>Individual</b>\r\n                                </td>\r\n                                <td>SG115002000</td>\r\n                                <td>IG115002000</td>\r\n                                <td rowspan=\"3\">\r\n                                    The prefix of SG/OG have been converted to IG, while the numeric characters remain unchanged.\r\n                                </td>\r\n                            </tr>\r\n                            <tr>\r\n                                <td>SC4040080091</td>\r\n                                <td>IG4040080091</td>\r\n                            </tr>\r\n                            <tr>\r\n                                <td>OG56003500070</td>\r\n                                <td>IG56003500070</td>\r\n                            </tr>\r\n                            <tr>\r\n                                <td rowspan=\"4\" style=\"background:#dddddd;vertical-align:middle;\">\r\n                                    <b>Business</b>\r\n                                </td>\r\n                                <td>C2088005001</td>\r\n                                <td>C20880050010</td>\r\n                                <td rowspan=\"4\">\r\n                                    An additional \"0\" has been added to the end of the existing TIN number.\r\n                                </td>\r\n                            </tr>\r\n                            <tr>\r\n                                <td>D480099002</td>\r\n                                <td>D4800990020</td>\r\n                            </tr>\r\n                            <tr>\r\n                                <td>E9100550006</td>\r\n                                <td>E91005500060</td>\r\n                            </tr>\r\n                            <tr>\r\n                                <td>F1023456709</td>\r\n                                <td>F10234567090</td>\r\n                            </tr>\r\n                        </tbody>\r\n                    </table>\r\n\t\t\t*Effective from 2 January 2023\r\n\t\t\t<hr>\r\n                </div>\t\t\r\n                <div class=\"col-lg-12\">\r\n                    <p>If you encounter any issues validating TIN information, you may reach out to LDHN through the following channels:</p>\r\n                    <ol type=\"a\">\r\n                        <li>Check TIN information via <a href=\"https://mytax.hasil.gov.my/ezHasil?data=e-Daftar&id=ezHasil%20sebelum\" target=\"_blank\">MyTax Portal</a> under \"e-Daftar\" menu</li>\r\n                        <li>Contact LHDN customer care at 03-8911 1000</li>\r\n                        <li>Visit the nearest LHDN office</li>\r\n                    </ol>\r\n                </div>''',
               textColor: Colors.grey[700],
-              isCenterText: true,
+              isCenterText: false,
               onLinkTap: (url) {
                 print('html url: $url');
               },
